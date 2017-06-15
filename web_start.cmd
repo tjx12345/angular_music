@@ -1,0 +1,1 @@
+cd web/dist && hs -o -c-1 -p 9998

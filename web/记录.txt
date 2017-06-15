@@ -1,0 +1,60 @@
+1:离开焦点发起请求 6666端口提示不安全
+2:处理跨域中间件中没有next(),就卡住了
+3:由于是跨域然后请求方式是post+ content-type是application/json，浏览器预检的时候自动加上头:content-type
+4: application/json的数据格式不被服务器中的body-parser解析
+    4.5: 设置头为键值对，设置转换数据的方式
+
+// =表示 双向数据绑定,如果外部直接给pwd="data.pwd",当你们修改，相互影响
+// @表示 单向数据绑定,如果外部修改，影响内部，内部修改不影响外部
+
+
+
+5:请求歌词数据的时候由于无法转换成json对象
+在请求的options参数中
+ {
+                        transformResponse: function(data) {
+                            return data;
+                        }
+                    }
+
+6: 当父级scope使用一个指令{{xxx}} 来传递一个对象是，
+    指令中接受的值是字符串的对象形式
+
+7: 自定义指令的使用，如果使用和指令声明一样的驼峰命名法，则无法触发监视效果，无效
+    scroll-lrc
+
+8:   // // angular.element  也可以使用angular.element(DOM)  jqlite对象功能不强大，还需要先获取到DOM元素
+                // $('file') 更为简单
+                // document.document.getElementById('file') //直接获取DOM元素也能操作
+
+9: 对于$http请求，angular中默认是application/json,还会去将数据做为对象发送
+    9.1对于文件上传需要指定不去处理头、不处理数据
+        jq: contentType:false,processData:false
+{
+    
+     headers: {
+            'content-type': undefined //针对包含文件上传 multipart/form-data
+        },
+        transformRequest: function(data) { //原样输出
+            return data;
+        }
+}
+
+10: node中  path.join('c:/aaa/','/bb/'); 解决路径拼接，修正不合理的路径
+10.1: path.parse('C:\\Users\\TUJUNX~1\\AppData\\Local\\Temp\\upload_3ec36ec44cf59ad3535287c6debb760b.txt');  通过路径对象.base 拿到文件名称
+10.2:前端获取\最后的部分  path.substr(path.lastIndexOf('\\')+1,path.length);
+
+
+
+11:在跨域中使用jsonp需要设置检察官的白名单
+    在config中
+     $sceDelegateProvider.resourceUrlWhitelist(['http://127.0.0.1:12345/**', 'self']);
+
+
+12: angular默认$http在跨域的时候不携带cookie,需要设置
+    withCredentials: true //允许携带证书->cookie
+
+13: 服务器当有跨域携带证书的时候，不允许origin是*,必须是某一个域的写法
+
+14: 根据上述，同时设置服务器允许携带证书
+ res.setHeader('Access-Control-Allow-Credentials', 'true');
