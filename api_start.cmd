@@ -1,1 +1,2 @@
-cd api && node server.js
+
+cd api && nodemon server.js dist
