@@ -1,0 +1,1 @@
+!function(a){a.module("MyAwesomePartials",[])}(angular);

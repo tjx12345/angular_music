@@ -1,0 +1,22 @@
+<div class="aw-top-menu-wrap">
+    <div class="container">
+        <!-- 用户栏 -->
+        <div class="aw-user-nav">
+            <div ng-show="name">
+                <a href="" class="aw-user-nav-dropdown"> {{name}},您好!</a>
+                <div class="aw-dropdown dropdown-list pull-right">
+                    <ul class="aw-dropdown-list">
+                        <li><a ui-sref="logout"><i class="icon icon-logout"></i> 退出</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 登陆&注册栏 -->
+            <span ng-hide="name">
+                <a ui-sref="register" class="register btn btn-normal btn-success" >注册</a>
+                <a ui-sref="login" class="login btn btn-normal btn-primary" >登录</a>
+            </span>
+            <!-- end 登陆&注册栏 -->
+        </div>
+        <!-- end 用户栏 -->
+    </div>
+</div>

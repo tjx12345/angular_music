@@ -1,0 +1,46 @@
+<script type="text/javascript">
+</script>
+<div class="aw-register-box">
+    <div class="mod-head">
+        <a href="/"></a>
+        <h1>注册新用户</h1>
+    </div>
+    <div class="mod-body">
+        <form class="aw-register-form" ng-submit="doRegister()">
+            <ul>
+                <li class="alert alert-danger hide error_message text-left">
+                    <i class="icon icon-delete"></i> <em></em>
+                </li>
+                <li>
+                    <input class="aw-register-name form-control" type="text" name="username" placeholder="用户名" ng-blur="checkUsername(data.username)" ng-model="data.username" /> <strong style="color:red">{{msg}}</strong>
+                </li>
+                <li>
+                    <input class="aw-register-email form-control" type="text" placeholder="邮箱" name="email" ng-model="data.email" />
+                </li>
+                <li>
+                    <input class="aw-register-pwd form-control" type="password" name="password" placeholder="密码" ng-model="data.password" />
+                </li>
+                <!-- 自定义指令密码强度 -->
+                <check-pwd pwd="{{data.password}}"></check-pwd>
+                <hr/>
+                <li class="aw-register-verify">
+                    <img class="pull-right" width="120" src="http://127.0.0.1:12345/public/getPic" onclick="this.src='http://127.0.0.1:12345/public/getPic?'+Date.now()">
+                    <input type="text" class="form-control" name="vcode" placeholder="验证码" ng-model="data.vcode" />
+                </li>
+                <li class="last">
+                    <label>
+                        <input type="checkbox" checked="checked" /> 我同意</label> <a href="javascript:;" class="aw-agreement-btn">用户协议</a>
+                    <a href="/login" class="pull-right">已有账号?</a>
+                    <div class="aw-regiter-agreement hide">
+                        <div class="aw-register-agreement-txt" id="register_agreement"></div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <button type="submit" class="btn btn-large btn-blue btn-block">
+                        注册
+                    </button>
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>
